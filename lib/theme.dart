@@ -12,8 +12,8 @@ Color darkGreyColor = Color(0xff9B99B4);
 TextStyle blackTextStyle = GoogleFonts.nunito(
   color: blackColor,
 );
-TextStyle blackTextStyle = GoogleFonts.nunito(
-  color: blackColor,
+TextStyle greyTextStyle = GoogleFonts.nunito(
+  color: greyColor,
 );
 TextStyle darkGreyTextStyle = GoogleFonts.nunito(
   color: darkGreyColor,
