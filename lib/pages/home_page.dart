@@ -1,51 +1,85 @@
 import 'package:flutter/material.dart';
 import 'package:nonton_asep/theme.dart';
+import 'package:nonton_asep/widgets/movie_carosel.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget header() {
-      return Container(
-        padding: EdgeInsets.only(
-          top: 30,
-          left: 24,
-          right: 24,
-        ),
-        child: Row(
+    return Scaffold(
+      backgroundColor: lightBackgroundColor,
+      body: SafeArea(
+        child: Column(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            SizedBox(
+              height: 29,
+            ),
+            Row(
               children: [
-                Text(
-                  'Home',
-                  style: blackTextStyle.copyWith(
-                    fontSize: 28,
-                    fontWeight: black,
-                  ),
+                SizedBox(width: 24),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Home',
+                      style: blackTextStyle.copyWith(
+                        fontSize: 28,
+                        fontWeight: black,
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      'Watch much easier',
+                      style: greyTextStyle.copyWith(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Watch much easier',
-                  style: greyTextStyle.copyWith(
-                    fontSize: 16,
-                    fontWeight: reguler,
+                Spacer(),
+                Container(
+                  width: 55,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    color: whiteColor,
+                    borderRadius: BorderRadius.horizontal(
+                      left: Radius.circular(
+                        259,
+                      ),
+                    ),
+                  ),
+                  child: Center(
+                    child: Image.asset(
+                      'assets/icon_search.png',
+                      width: 22,
+                    ),
                   ),
                 ),
               ],
             ),
-            Spacer(),
-            Image.asset(
-              'assets/icon_search.png',
+            SizedBox(
+              height: 30,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  MovieCarouselItem(
+                    imageUrl: 'assets/image_movie1.png',
+                    title: 'John Wick 4',
+                    rating: 10,
+                    releaseDate: DateTime(2021, 6, 17),
+                  ),
+                  MovieCarouselItem(
+                    imageUrl: 'assets/image_movie2.png',
+                    title: 'Bohemian',
+                    rating: 4,
+                    releaseDate: DateTime(2020, 5, 11),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
-      );
-    }
-
-    return Scaffold(
-      body: Column(
-        children: [
-          header(),
-        ],
       ),
     );
   }
