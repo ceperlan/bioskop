@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nonton_asep/pages/success.dart';
 import 'package:nonton_asep/theme.dart';
 
 class DetailPage extends StatelessWidget {
@@ -251,12 +252,20 @@ class DetailPage extends StatelessWidget {
                 height: 50,
                 margin: EdgeInsets.only(top: 41),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SuccessPage(),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
-                      primary: blackColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(37),
-                      )),
+                    primary: blackColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(37),
+                    ),
+                  ),
                   child: Text(
                     'Buy Ticket',
                   ),
