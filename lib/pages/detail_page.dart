@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:nonton_asep/pages/success.dart';
+import 'package:nonton_asep/pages/success_page.dart';
 import 'package:nonton_asep/theme.dart';
 
 class DetailPage extends StatelessWidget {
@@ -22,13 +22,18 @@ class DetailPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  padding: EdgeInsets.all(7),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: whiteColor,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(7),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: whiteColor,
+                    ),
+                    child: Icon(Icons.chevron_left),
                   ),
-                  child: Icon(Icons.chevron_left),
                 ),
                 Container(
                   padding: EdgeInsets.all(7),
@@ -256,22 +261,27 @@ class DetailPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const SuccessPage(),
+                        builder: (context) => SuccessPage(),
                       ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     primary: blackColor,
+                    elevation: 3,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(37),
                     ),
                   ),
                   child: Text(
                     'Buy Ticket',
+                    style: whiteTextStyle.copyWith(
+                      fontSize: 18,
+                      fontWeight: bold,
+                    ),
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
