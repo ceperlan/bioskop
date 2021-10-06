@@ -27,7 +27,7 @@ class MovieModel {
   factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
         id: json['id'],
         overview: json['overview'],
-        porterPath: json['poster_path'],
+        porterPath: 'https://image.tmdb.org/t/p/w500' + json['poster_path'],
         releaseDate: DateTime.parse(json['release_date']),
         title: json['title'],
         voteAverage: json['vote_average'],

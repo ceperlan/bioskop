@@ -56,7 +56,7 @@ class MovieListItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'John Wick 4',
+                  'John Wick 5',
                   style: blackTextStyle.copyWith(
                     fontSize: 20,
                     fontWeight: extraBold,
