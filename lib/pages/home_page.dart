@@ -103,7 +103,7 @@ class HomePage extends StatelessWidget {
                         bottom: 20,
                       ),
                       child: Text(
-                        'Populer Movies',
+                        'Top Rate Movies',
                         style: blackTextStyle.copyWith(
                           fontSize: 24,
                           fontWeight: black,

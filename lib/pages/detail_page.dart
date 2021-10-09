@@ -70,113 +70,115 @@ class DetailPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      movie.title,
-                      style: blackTextStyle.copyWith(
-                        fontSize: 20,
-                        fontWeight: extraBold,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        movie.title,
+                        style: blackTextStyle.copyWith(
+                          fontSize: 20,
+                          fontWeight: extraBold,
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      DateFormat('MMM dd, yyy').format(
-                        movie.releaseDate,
+                      SizedBox(
+                        height: 4,
                       ),
-                      style: greyTextStyle.copyWith(
-                        fontSize: 16,
+                      Text(
+                        DateFormat('MMM dd, yyy').format(
+                          movie.releaseDate,
+                        ),
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: movie.voteAverage >= 2
-                              ? yellowColor
-                              : lightGreyColor,
-                          size: 18,
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: movie.voteAverage >= 4
-                              ? yellowColor
-                              : lightGreyColor,
-                          size: 18,
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: movie.voteAverage >= 6
-                              ? yellowColor
-                              : lightGreyColor,
-                          size: 18,
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: movie.voteAverage >= 8
-                              ? yellowColor
-                              : lightGreyColor,
-                          size: 18,
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: movie.voteAverage >= 10
-                              ? yellowColor
-                              : lightGreyColor,
-                          size: 18,
-                        ),
-                        SizedBox(
-                          width: 6,
-                        ),
-                        Text(
-                          movie.voteCount.toString(),
-                          style: blackTextStyle.copyWith(
-                            fontSize: 12,
-                            fontWeight: bold,
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.star,
+                            color: movie.voteAverage >= 2
+                                ? yellowColor
+                                : lightGreyColor,
+                            size: 18,
                           ),
-                        ),
-                        SizedBox(
-                          width: 4,
-                        ),
-                        Text(
-                          'people',
-                          style: blackTextStyle.copyWith(
-                            fontSize: 12,
-                            fontWeight: light,
+                          SizedBox(
+                            width: 2,
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Text(
-                      '1h 30min',
-                      style: blackTextStyle,
-                    ),
-                    Text(
-                      'Dolby Production',
-                      style: greyTextStyle,
-                    ),
-                  ],
+                          Icon(
+                            Icons.star,
+                            color: movie.voteAverage >= 4
+                                ? yellowColor
+                                : lightGreyColor,
+                            size: 18,
+                          ),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Icon(
+                            Icons.star,
+                            color: movie.voteAverage >= 6
+                                ? yellowColor
+                                : lightGreyColor,
+                            size: 18,
+                          ),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Icon(
+                            Icons.star,
+                            color: movie.voteAverage >= 8
+                                ? yellowColor
+                                : lightGreyColor,
+                            size: 18,
+                          ),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Icon(
+                            Icons.star,
+                            color: movie.voteAverage >= 10
+                                ? yellowColor
+                                : lightGreyColor,
+                            size: 18,
+                          ),
+                          SizedBox(
+                            width: 6,
+                          ),
+                          Text(
+                            movie.voteCount.toString(),
+                            style: blackTextStyle.copyWith(
+                              fontSize: 12,
+                              fontWeight: bold,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Text(
+                            'people',
+                            style: blackTextStyle.copyWith(
+                              fontSize: 12,
+                              fontWeight: light,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      Text(
+                        '1h 30min',
+                        style: blackTextStyle,
+                      ),
+                      Text(
+                        'Dolby Production',
+                        style: greyTextStyle,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
