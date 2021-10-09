@@ -91,7 +91,7 @@ class HomePage extends StatelessWidget {
                         //     releaseDate: DateTime(2020, 5, 11),
                         //   ),
                         // ],
-                        children: state.data
+                        children: state.playingNowMovies
                             .map((e) => MovieCarouselItem(movie: e))
                             .toList(),
                       ),
@@ -103,31 +103,36 @@ class HomePage extends StatelessWidget {
                         bottom: 20,
                       ),
                       child: Text(
-                        'From Disney',
+                        'Populer Movies',
                         style: blackTextStyle.copyWith(
                           fontSize: 24,
                           fontWeight: black,
                         ),
                       ),
                     ),
-                    MovieListItem(
-                      imageUrl: 'assets/image_movie3.png',
-                      title: 'Mulan Session',
-                      rating: 6,
-                      releaseDate: DateTime(2021, 6, 17),
-                    ),
-                    MovieListItem(
-                      imageUrl: 'assets/image_movie4.png',
-                      title: 'Beauty & Beast',
-                      rating: 10,
-                      releaseDate: DateTime(2021, 6, 17),
-                    ),
-                    MovieListItem(
-                      imageUrl: 'assets/image_movie5.png',
-                      title: 'Mulan Session',
-                      rating: 6,
-                      releaseDate: DateTime(2021, 6, 17),
-                    ),
+                    // MovieListItem(
+                    //   imageUrl: 'assets/image_movie3.png',
+                    //   title: 'Mulan Session',
+                    //   rating: 6,
+                    //   releaseDate: DateTime(2021, 6, 17),
+                    // ),
+                    // MovieListItem(
+                    //   imageUrl: 'assets/image_movie4.png',
+                    //   title: 'Beauty & Beast',
+                    //   rating: 10,
+                    //   releaseDate: DateTime(2021, 6, 17),
+                    // ),
+                    // MovieListItem(
+                    //   imageUrl: 'assets/image_movie5.png',
+                    //   title: 'Mulan Session',
+                    //   rating: 6,
+                    //   releaseDate: DateTime(2021, 6, 17),
+                    // ),
+                    Column(
+                      children: state.playingPopularMovies
+                          .map((e) => MovieListItem(movie: e))
+                          .toList(),
+                    )
                   ],
                 ),
               ),

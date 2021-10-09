@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:nonton_asep/pages/detail_page.dart';
+import 'package:nonton_asep/models/movie_model.dart';
 import 'package:nonton_asep/theme.dart';
 
 class MovieListItem extends StatelessWidget {
-  final String imageUrl;
-  final String title;
-  final DateTime releaseDate;
-  final double rating;
-
-  const MovieListItem({
-    Key? key,
-    required this.imageUrl,
-    required this.title,
-    required this.releaseDate,
-    required this.rating,
-  }) : super(key: key);
+  // final String imageUrl;
+  // final String title;
+  // final DateTime releaseDate;
+  // final double rating;
+  final MovieModel movie;
+  const MovieListItem(
+      {Key? key,
+      // required this.imageUrl,
+      // required this.title,
+      // required this.releaseDate,
+      // required this.rating,
+      required this.movie})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,9 @@ class MovieListItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => DetailPage(),
+            builder: (context) => DetailPage(
+              movie: movie,
+            ),
           ),
         );
       },
@@ -48,74 +52,84 @@ class MovieListItem extends StatelessWidget {
                 ),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage(imageUrl),
+                  image: NetworkImage(
+                    movie.porterPath,
+                  ),
                 ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'John Wick 5',
-                  style: blackTextStyle.copyWith(
-                    fontSize: 20,
-                    fontWeight: extraBold,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    movie.title,
+                    style: blackTextStyle.copyWith(
+                      fontSize: 20,
+                      fontWeight: extraBold,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 4,
-                ),
-                Text(
-                  DateFormat('MMM dd, yyy').format(releaseDate),
-                  style: greyTextStyle.copyWith(
-                    fontSize: 16,
+                  SizedBox(
+                    height: 4,
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.star,
-                      color: rating >= 2 ? yellowColor : lightGreyColor,
-                      size: 18,
+                  Text(
+                    DateFormat('MMM dd, yyy').format(movie.releaseDate),
+                    style: greyTextStyle.copyWith(
+                      fontSize: 16,
                     ),
-                    SizedBox(
-                      width: 2,
-                    ),
-                    Icon(
-                      Icons.star,
-                      color: rating >= 4 ? yellowColor : lightGreyColor,
-                      size: 18,
-                    ),
-                    SizedBox(
-                      width: 2,
-                    ),
-                    Icon(
-                      Icons.star,
-                      color: rating >= 6 ? yellowColor : lightGreyColor,
-                      size: 18,
-                    ),
-                    SizedBox(
-                      width: 2,
-                    ),
-                    Icon(
-                      Icons.star,
-                      color: rating >= 8 ? yellowColor : lightGreyColor,
-                      size: 18,
-                    ),
-                    SizedBox(
-                      width: 2,
-                    ),
-                    Icon(
-                      Icons.star,
-                      color: rating >= 10 ? yellowColor : lightGreyColor,
-                      size: 18,
-                    ),
-                  ],
-                )
-              ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color:
+                            movie.voteAverage >= 2 ? yellowColor : lightGreyColor,
+                        size: 18,
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Icon(
+                        Icons.star,
+                        color:
+                            movie.voteAverage >= 4 ? yellowColor : lightGreyColor,
+                        size: 18,
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Icon(
+                        Icons.star,
+                        color:
+                            movie.voteAverage >= 6 ? yellowColor : lightGreyColor,
+                        size: 18,
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Icon(
+                        Icons.star,
+                        color:
+                            movie.voteAverage >= 8 ? yellowColor : lightGreyColor,
+                        size: 18,
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Icon(
+                        Icons.star,
+                        color: movie.voteAverage >= 10
+                            ? yellowColor
+                            : lightGreyColor,
+                        size: 18,
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ],
         ),

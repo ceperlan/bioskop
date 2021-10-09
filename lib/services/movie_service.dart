@@ -20,4 +20,18 @@ class MovieService {
       throw e;
     }
   }
+
+  Future<List<MovieModel>> getPopulerNowMovies() async {
+    try {
+      final res = await dio.get('$baseUrl/3/movie/popular?api_key=$apiKey');
+      print('$baseUrl/3/movie/popular?api_key=$apiKey');
+      final List data = res.data['results'] as List;
+      final movies = data.map((e) => MovieModel.fromJson(e)).toList();
+      print(movies);
+      return movies;
+    } catch (e) {
+      print(e);
+      throw e;
+    }
+  }
 }

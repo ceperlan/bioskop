@@ -2,7 +2,7 @@
     package="com.example.nonton_asep">
    <application
         android:label="nonton_asep"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

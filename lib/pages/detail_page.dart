@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nonton_asep/models/movie_model.dart';
 import 'package:nonton_asep/pages/success_page.dart';
 import 'package:nonton_asep/theme.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  final MovieModel movie;
+  const DetailPage({Key? key, required this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +66,7 @@ class DetailPage extends StatelessWidget {
                     ),
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage('assets/image_movie5.png'),
+                      image: NetworkImage(movie.porterPath),
                     ),
                   ),
                 ),
@@ -72,7 +74,7 @@ class DetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'The Dark II',
+                      movie.title,
                       style: blackTextStyle.copyWith(
                         fontSize: 20,
                         fontWeight: extraBold,
@@ -83,11 +85,7 @@ class DetailPage extends StatelessWidget {
                     ),
                     Text(
                       DateFormat('MMM dd, yyy').format(
-                        DateTime(
-                          2021,
-                          9,
-                          11,
-                        ),
+                        movie.releaseDate,
                       ),
                       style: greyTextStyle.copyWith(
                         fontSize: 16,
@@ -100,7 +98,9 @@ class DetailPage extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.star,
-                          color: 10 >= 2 ? yellowColor : lightGreyColor,
+                          color: movie.voteAverage >= 2
+                              ? yellowColor
+                              : lightGreyColor,
                           size: 18,
                         ),
                         SizedBox(
@@ -108,7 +108,9 @@ class DetailPage extends StatelessWidget {
                         ),
                         Icon(
                           Icons.star,
-                          color: 10 >= 4 ? yellowColor : lightGreyColor,
+                          color: movie.voteAverage >= 4
+                              ? yellowColor
+                              : lightGreyColor,
                           size: 18,
                         ),
                         SizedBox(
@@ -116,7 +118,9 @@ class DetailPage extends StatelessWidget {
                         ),
                         Icon(
                           Icons.star,
-                          color: 10 >= 6 ? yellowColor : lightGreyColor,
+                          color: movie.voteAverage >= 6
+                              ? yellowColor
+                              : lightGreyColor,
                           size: 18,
                         ),
                         SizedBox(
@@ -124,7 +128,9 @@ class DetailPage extends StatelessWidget {
                         ),
                         Icon(
                           Icons.star,
-                          color: 10 >= 8 ? yellowColor : lightGreyColor,
+                          color: movie.voteAverage >= 8
+                              ? yellowColor
+                              : lightGreyColor,
                           size: 18,
                         ),
                         SizedBox(
@@ -132,14 +138,16 @@ class DetailPage extends StatelessWidget {
                         ),
                         Icon(
                           Icons.star,
-                          color: 10 >= 10 ? yellowColor : lightGreyColor,
+                          color: movie.voteAverage >= 10
+                              ? yellowColor
+                              : lightGreyColor,
                           size: 18,
                         ),
                         SizedBox(
                           width: 6,
                         ),
                         Text(
-                          '13K',
+                          movie.voteCount.toString(),
                           style: blackTextStyle.copyWith(
                             fontSize: 12,
                             fontWeight: bold,
@@ -186,7 +194,7 @@ class DetailPage extends StatelessWidget {
               height: 10,
             ),
             Text(
-              'The Dark is a 2018 Austrian horror film written and directed by Justin P. Lange and starring Nadia Alexander, Toby Nichols, and Karl Markovics.\n\ntrying to succeed as something both metaphorical and very literal-minded, the movie ends up being neither one.',
+              movie.overview,
               style: greyTextStyle.copyWith(
                 fontSize: 16,
                 height: 1.6,
